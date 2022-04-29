@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+<div id="app">
+<!--模板语法-->
+    <h2>{{msg}}</h2>
+    <h3>{{'Hell World'}}</h3>
+    <h5>{{  person.name  }}</h5>
+    <h2>{{  3>2? "真的":"假的"  }}</h2>
+</div>
+<!--引入包-->
+<script src="./vue.js"></script>
+<script>
+    // 实例化对象
+    new Vue({
+        el:'#app',
+        data:{
+            msg:"Hello World",
+            person:{
+                name:"wusir"
+            }
+        }
+    });
+</script>
+</body>
+</html>

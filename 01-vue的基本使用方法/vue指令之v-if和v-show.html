@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    {{ add(2,3)  }}
+    <div v-text="msg"></div>
+    <div v-html="msg"></div>
+    <div class="box" v-show="isShow"></div>
+    <button v-on:click="handerClick">隐藏</button>
+    <button v-on:click="isShowClick">显示</button>
+</div>
+
+<script src="./vue.js"></script>
+<script>
+    new Vue({
+        el:"#content",
+        data(){
+            return{
+                msg:"<h2>alex</h2>",
+                // isShow:1==1
+                isShow:true
+            }
+        },
+        methods:{
+            add(x,y){
+                return x+y
+            },
+            handerClick(){
+               console.log(this);
+                this.isShow=!this.isShow;
+            },
+            isShowClick(){
+                console.log(this)
+                this.isShow=!this.isShow
+            }
+        }
+    })
+</script>
+</body>
+</html>
