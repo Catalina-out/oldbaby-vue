@@ -9,23 +9,34 @@
             width: 200px;
             background-color: red;
         }
+        .active{
+            background-color: green;
+        }
     </style>
 </head>
 
 <body>
 <script src="./vue.js"></script>
 <div id="app">
+    <button v-on:click="handlerClick">切换</button>
 <!--    图片加载失败的时候，alt属性会生效弹出对应的话框属性-->
     <img v-bind:src="imgSrc" v-bind:alt="altImg">
+    <div class="box" v-bind:class='{active:isActive}'></div>
 </div>
 <script>
     new Vue({
         el:"#app",
         data(){
             return{
-                imgSrc:"./xiaohua.jpg",
-                altImg:"美女"
+                imgSrc:"./logo.png",
+                altImg:"公司logo",
+                isActive:true
 
+            }
+        },
+        methods:{
+            handlerClick(){
+                this.isActive = !this.isActive
             }
         }
     })
