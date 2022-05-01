@@ -18,16 +18,33 @@
 <body>
 <script src="./vue.js"></script>
 <div id="app">
+    <ul v-if="data.status === 'ok' ">
+<!--        v-for的优先级最高，使用的是diff算法-->
+        <li v-for="(item,index) in data.user" :key="item.id">
+            <h3>{{  item.id  }}---{{  item.name  }}---{{  item.age  }}</h3>
+        </li>
 
+    </ul>
+    <div v-for="(value,key) in person">
+        {{  value  }} --- {{  key  }}
+    </div>
 </div>
 <script>
     new Vue({
         el:"#app",
         data(){
             return{
-                user:[
-
-                ]
+                data:{
+                    status:"ok",
+                    user:[
+                        {id:1,name:"alex",age:20},
+                        {id:2,name:"alex",age:21},
+                        {id:3,name:"alex",age:22}
+                    ]
+                },
+                person:{
+                    name:"alex"
+                }
             }
         }
     })
