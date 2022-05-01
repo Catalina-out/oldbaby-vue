@@ -18,7 +18,7 @@
 <body>
 <script src="./vue.js"></script>
 <div id="app">
-    <button v-on:click="handlerClick">切换</button>
+    <button @mouseenter="handlerEnter" @mouseleave="handlerLeave">切换颜色</button>
 <!--    图片加载失败的时候，alt属性会生效弹出对应的话框属性-->
     <img v-bind:src="imgSrc" v-bind:alt="altImg">
     <div class="box" v-bind:class='{active:isActive}'></div>
@@ -30,13 +30,16 @@
             return{
                 imgSrc:"./logo.png",
                 altImg:"公司logo",
-                isActive:true
+                isActive:false
 
             }
         },
         methods:{
-            handlerClick(){
-                this.isActive = !this.isActive
+            handlerEnter(){
+                this.isActive = true
+            },
+            handlerLeave(){
+                this.isActive = false
             }
         }
     })
