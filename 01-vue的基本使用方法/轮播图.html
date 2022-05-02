@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <img :src="images[currentIndex].imgSrc" alt="" @click="imageHandler">
+    <button @click="nextHandler">下一张 </button>
+    <button @click="prevHandler">上一张 </button>
+</div>
+<script src="./vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data(){
+            return{
+                images:[
+                    {id:"1",imgSrc:"./images/1.jpg"},
+                    {id:"2",imgSrc:"./images/2.jpg"},
+                    {id:"3",imgSrc:"./images/3.jpg"},
+                    {id:"4",imgSrc:"./images/4.jpg"}
+                ],
+                currentIndex:0
+            }
+        },
+        methods:{
+            nextHandler(){
+            this.currentIndex++;
+            if(this.currentIndex == 4){
+                    this.currentIndex=0
+                }
+
+        },
+            prevHandler(){
+            this.currentIndex--;
+            if(this.currentIndex == 0){
+                this.currentIndex=4
+            }
+            },
+            imageHandler(e){
+                console.log(e.target)
+            }
+        }
+    })
+</script>
+</body>
+</html>
