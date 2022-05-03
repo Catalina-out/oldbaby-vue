@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+<script>
+    var person={
+        name:"alex",
+        age:"20",
+        fav:()=>{
+            console.log(this) // 指向当前对象
+            console.log(this.name)
+        }
+    }
+    person.fav()
+</script>
+</body>
+</html>
