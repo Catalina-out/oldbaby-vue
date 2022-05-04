@@ -2,19 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue</title>
+    <title>Title</title>
 </head>
 <body>
 <div id="app">
-    {{  msg  }}
+    <div>
+        <span>
+
+        </span>
+    </div>
 </div>
 <script src="./vue.js"></script>
+<script src="http://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    new Vue({
+    let vm = new Vue({
         el:"#app",
         data(){
-            return {
-                msg:"alex"
+            return{
+
+            }
+        },
+        methods:{
+            created(){
+                $.ajax({
+                    url:"https://www.luffycity.com/api/v1/course_sub/category/list",
+                    type:"get",
+                    success:function (data){
+                        console.log(data)
+                    },
+                    error:function (err){
+                        console.log(err)
+                    }
+                })
             }
         }
     })
